@@ -1,37 +1,41 @@
 # Your solution to Exercise 5
 
-a = float(input("Input integer: "))
-b = float(input("Input integer: "))
-c = float(input("Input integer: "))
+a = float(input("Enter coefficient a: "))
+b = float(input("Enter coefficient b: "))
+c = float(input("Enter coefficient c: "))
 
 d = b**2 - (4*a*c)
+
+x1 = 0
+x2 = 0
 
 output = ""
 
 if a == 0 and b == 0 and c == 0:
     output = "Infinite roots."
-elif a > 0:
-    x = -b / (2 * a)
-    output = x
+elif a == 0 and b == 0 and c != 0:
+    output = "No roots."
 elif a == 0:
     if b != 0:
-        x = -c / b
-        output = x
+        output = -c/b
 elif b == 0:
-    if c != 0:
-        x1 = (-c / a) ** 0.5
-        x2 = -(-c / a) ** 0.5
-        output = f"{x1} and {x2}"
-    else:
-        output = 0
-elif d > 0:
-    x1 = (-b + (d ** 0.5)) / (2 * a)
-    x2 = (-b - (d ** 0.5)) / (2 * a)
-    output = f"{x1} and {x2}"
+    if a != 0:
+        output = (-c/a)**0.5
+elif c == 0:
+    if a != 0:
+        output = "No roots."
+    elif b != 0:
+        output = -b/a
+elif d < 0:
+    output = "No roots."
 elif d == 0:
-    x = -b / (2 * a)
-    output = x
+    output = -b/(2*a)
+elif d > 0:
+    x1 = (-b + (d**0.5))/(2*a)
+    x2 = (-b - (d**0.5))/(2*a)
+    output = f"{x1} and {x2}"
 else:
     output = "No roots."
 
 print(output)
+        
